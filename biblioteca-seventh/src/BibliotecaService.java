@@ -40,11 +40,13 @@ public class BibliotecaService {
 
     private void cadastrarLivro() {
         System.out.print("Título: ");
-        String titulo = scanner.nextLine();
+        String titulo = validarEntrada("Título não pode ser vazio");
+
         System.out.print("Autor: ");
-        String autor = scanner.nextLine();
+        String autor = validarEntrada("Autor não pode ser vazio");
+
         System.out.print("Ano: ");
-        String ano = scanner.nextLine();
+        String ano = validarEntrada("Ano não pode ser vazio");
 
         biblioteca.cadastrarLivro(new Livro(titulo, autor, ano));
     }
@@ -76,5 +78,17 @@ public class BibliotecaService {
 
         exemplos.forEach(biblioteca::cadastrarLivro);
         System.out.println(exemplos.size() + " livros exemplo carregados!");
+    }
+
+    private String validarEntrada(String mensagemErro) {
+        String entrada;
+        while (true) {
+            entrada = scanner.nextLine().trim();
+            if (!entrada.isEmpty()) {
+                return entrada;
+            }
+            System.out.println(mensagemErro);
+            System.out.print("Por favor, digite novamente: ");
+        }
     }
 }

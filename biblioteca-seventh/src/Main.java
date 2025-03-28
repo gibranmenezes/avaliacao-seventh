@@ -6,7 +6,5 @@ public class Main {
        Biblioteca biblioteca = new Biblioteca();
        BibliotecaService service = new BibliotecaService(biblioteca);
        service.iniciarMenu();
-       Comparator
     }
-
 }
