@@ -1,0 +1,102 @@
+1. Teoria - Responda brevemente
+a) Explique o conceito de Programação Orientada a Objetos e seus principais pilares.
+A POO é um dos paradigmas da programação que todo o código é desenvolvido em torno de um Objeto, que 
+é uma representação de coisas do mundo real. Em POO um Objeto possui propriedade (atributos) e comportamentos (métodos).
+Além do Objeto temos a Classe que é um modelo desse Objeto, ou seja, um Objeto é uma instância concreta
+do modelo definido pela Classe. 
+
+--Opinião pessoal: Para mim o Java adota um paradigma que seria mais Orientado a Classes.
+
+O principais pilares da POO são:
+Abstração - é a forma de modelar os objetos de maneira a simplifica sua complexidade expondo
+apenas aquilo que de fato é mais importante.
+
+Encapsulamento - seria uma aplicação do pilar da abstração. O encapsulamento oculta atributos e 
+implementação de métodos que são internos a classe/objeto e os expõe por meio de método públicos
+para que quem consome esses métodos públicos não tenha acesso ou conheça o funcionamento interno.
+
+Herança - consiste no fato de que objetos distintos possuem atributos semelhantes podendo então ter 
+uma relação entre suas classes. Na heranças temos que uma classe pode herdar atributos e métodos de uma
+classe "pai" ou superclasse. Isso promove a reutilização de código além de que os objetos herdam os
+comportamentos e atributos da superclasse mas podem ainda assim ter seus métodos e atributos específicos.
+
+Polimorfismo - Um método representa um comportamento. Contudo um comportamento pode ter formas distintas
+de ocorrer a depender do objeto a que pertence. O poliformismo permite então que um método seja executado
+de maneira distinta pelos objetos que herdam de uma mesma superclasse, ou que implementem um mesmo contrato
+(interface) ou ainda por sobrecarga, que ocorre quando um objeto possui diferentes implementações do mesmo
+método.
+
+b) Qual a diferença entre HashMap e TreeMap?
+Em Java, ambas são implementações da interface Map cujos elementos são compostos pelo par chave-valor.
+ Como expliquei acima, devido ao polimorfismo, as
+implemetações possuem distinções e características próprias:
+
+HashMap:
+    Se baseia em uma Tabela Hash
+    Não mantém a ordem de inserção/iteração doso elementos
+    Permite chave de valor null
+    Compara as chaves por hashcode() e equals()
+    Complexidade das operações put, get, remove O(1)
+
+TreeMap:
+    Se baseia em uma red-black Tree
+    Mantém a ordem de inserção
+    Por padrão não permite chave de valor null
+    Comparação feita por Comparator
+    Complexidade das operações put, get, remove O(log(n))
+
+c) O que são interfaces funcionais em Java 8+? Dê um exemplo.
+
+Interface funcional anotadas por padrão com @FunctionalInterface, são interfaces
+que possuem apenas um único método abstrato. Contudo podem ter métodos default ou static.
+Possuem integração com a API Stream e com isso é possível o uso de lambdas expressions.
+Um exemplo de interface funcional é a que eu citei ao explicar TreeMap que é interface
+Comparator<T>.
+
+
+3. Teoria - Responda brevemente
+a) Explique o que é hoisting em JavaScript.
+É o comportamento que ocorre no contexto de execução do JavaScript. No momento da compilação a
+declaração de functions e variaveis são "içadas" para o topo do escopo - não fisicamente - e
+permite que durante a execução do código, essas funções possam ser chamadas mesmo antes que a
+execução chegue na linha em que estão declaradas, pois elas já estão disponíveis em memória.
+
+b) Qual a diferença entre let, var e const?
+a diferença está no tocante ao tipo de escopo e a possibilidade de reatribuição.
+
+espoco de global ou de função local:
+    var - pode ser reatrubuida e re-declaradas
+
+espoco de bloco:
+const - não podem ser reatribuídas nem re-declaradas
+let - podem ser reatribuídas e não podem ser re-declaradas
+
+c) O que são Promises e como funcionam?
+Promise é a forma de representar o resultado de uma execução assíncrona.
+O funcionamento de uma promise se dá da seguinte forma:
+
+    ao se declara uma Promise se estabelece o deve ser feito quando a ação assíncrona
+    retorna seu resultado (sucesso ou falha)
+    com isso, o código não ficará "travado" aguardando o retorno dessa ação, visto que a primise
+    se encarrega se tratar e executar o que for necessário quando a retorno ocorrer.
+
+5. Teoria - Responda brevemente
+a) O que é uma chave primária e uma chave estrangeira?
+Chave primária - é o campo de uma tabela que identifica um registro. Ela deve ser única e exclusiva,
+não nula e pode ser composta pela combinação de vários campos
+
+Chave estrangeira - campo que define o relacionamento entre tabelas. A chave estrangeira de uma tabela
+faz referência à chave primária de outra tabela. Não é exclusiva e não pode ser nula.
+
+b) Explique a diferença entre INNER JOIN e LEFT JOIN.
+Ambos são operações de junção de registros entre tabelas com base em um campo de relacinamento.
+
+InnerJoin - faz a junção e retorna apenas os registros que têm correspondência nas duas tabelas
+LeftJoin - faz a junção e retorna os registros que têm correspondência nas duas tabelas e os demais
+registros da primeira tabela declarada na junção (tabela da esquerda)
+
+c) O que são índices e qual o seu impacto na performance?
+São uma espécie de Sumário organizado cirados em  colunas que são usadas frequentemente em buscas
+Eles apontam para a localização física exata dos dados. Eles melhoram a performance visto que reduzem o volume de I/O no
+disco e permitem recuperar mais rapidamente registros no banco de dados.
+Contudo, aumenta o consumo de armazenamento; precisa atualizar o índice a cada modificação da tabela.
